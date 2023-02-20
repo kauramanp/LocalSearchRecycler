@@ -72,11 +72,19 @@ class MainActivity : AppCompatActivity() {
             setMessage(resources.getString(R.string.delete_item_msg))
             setPositiveButton(resources.getString(R.string.yes)){_,_->
                 userModelList.removeAt(position)
+                clearAndAddList()
             }
             setNegativeButton(resources.getString(R.string.no)){_,_->
             }
             show()
         }
+    }
+
+    private fun clearAndAddList() {
+        showUserModelList.clear()
+        showUserModelList.addAll(userModelList)
+        adapter.notifyDataSetChanged()
+        binding.etSearch.text.clear()
     }
 
     fun showDialogFun(position:Int = -1){
@@ -99,9 +107,7 @@ class MainActivity : AppCompatActivity() {
                 }else{
                     userModelList.add(UserModel(userModelList.size, dialogBinding.etName.text.toString(), dialogBinding.etPhoneNumber.text.toString()))
                 }
-                showUserModelList.clear()
-                showUserModelList.addAll(userModelList)
-                binding.etSearch.text.clear()
+                clearAndAddList()
                 dialog.dismiss()
             }
         }

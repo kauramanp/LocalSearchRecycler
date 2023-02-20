@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvTitle"
+        android:gravity="center"
+        android:layout_marginHorizontal="@dimen/margin_5dp"
         android:text="@string/add"/>
 
     <TextView
@@ -33,6 +35,9 @@
         android:id="@+id/etPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
+        android:digits="1234567890"
+        android:maxLength="10"
         android:hint="@string/enter_phone_number"/>
 
     <LinearLayout
