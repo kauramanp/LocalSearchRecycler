@@ -39,7 +39,10 @@ class MainActivity : AppCompatActivity() {
         adapter = UserAdapter(showUserModelList, object: UserModelClick {
             override fun UserModelClick(position: Int, clickType: ClickType){
                 when(clickType){
-                    ClickType.EDIT->showDialogFun(position)
+                    ClickType.EDIT-> {
+                        var index = userModelList.indexOfFirst { element-> (element.name?.contains((showUserModelList[position].name?:""), true)== true) && (element.address?.contains((showUserModelList[position].address?:""), true)== true) }
+                        showDialogFun(index)
+                    }
                     ClickType.DELETE->showDialogDelete(position)
                 }
             }
