@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             override fun UserModelClick(position: Int, clickType: ClickType){
                 when(clickType){
                     ClickType.EDIT-> {
-                        var index = userModelList.indexOfFirst { element-> (element.name?.contains((showUserModelList[position].name?:""), true)== true) && (element.address?.contains((showUserModelList[position].address?:""), true)== true) }
+                        var index = userModelList.indexOfFirst { element-> (element.name?.contains((showUserModelList[position].name?:""), true)== true) && (element.phoneNumber?.contains((showUserModelList[position].phoneNumber?:""), true)== true) }
                         showDialogFun(index)
                     }
                     ClickType.DELETE->showDialogDelete(position)
